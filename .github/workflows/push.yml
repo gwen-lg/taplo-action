@@ -19,14 +19,28 @@ jobs:
       - uses: actions/checkout@v4
       - uses: webiny/action-conventional-commits@v1.3.0
 
-  check-changelog:
-    name: Various check
+  check-changelog-push:
+    if: ${{ github.event_name == 'push' }}
+    strategy:
+      matrix:
+        commit: ${{ github.event.commits }}
+
+    name: "Check: ${{ matrix.commit.message }}"
     runs-on: ubuntu-latest
+    concurrency:
+      # For a given workflow, if we push to the same branch, cancel all previous builds on that branch.
+      # Particularly useful for workflow triggered on release-plz sync.
+      # release-plz workflow update de pending pr twice (with cargo readme update)
+      # Note: Include commit message to not cancel job of commit not updated in push
+      group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.commit.message }}
+      cancel-in-progress: true
     steps:
-      - name: Checkout
+      - name: "Checkout `${{ matrix.commit.message }}`"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: "${{ matrix.commit.id }}"
+
       - name: Generate Changelog
         id: generate-changelog
         uses: orhun/git-cliff-action@v4
