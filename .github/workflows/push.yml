@@ -18,3 +18,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: webiny/action-conventional-commits@v1.3.0
+
+  check-changelog:
+    name: Various check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate Changelog
+        id: generate-changelog
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+        env:
+          OUTPUT: CHANGELOG_UP.md
+          GITHUB_REPO: ${{ github.repository }}
+      - name: Check Changelog
+        id: check-changelog
+        run: diff CHANGELOG.md CHANGELOG_UP.md

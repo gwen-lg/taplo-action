@@ -20,6 +20,7 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 ### ⟳ Continuous Integration
 
 - *(push)* add workflow for push event with conventional commits check
+- *(push)* add check than the changelog is up to date
 
 ### ⚙️ Miscellaneous Tasks
 
