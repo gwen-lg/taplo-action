@@ -15,3 +15,60 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: webiny/action-conventional-commits@v1.3.0
+
+  define-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      commits: ${{ steps.list_commits.outputs.commits }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: List commits
+        id: list_commits
+        run: |
+          set -eu
+          for commit in $(git rev-list ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}); do
+            if [[ -v commit_list ]]
+            then
+              commit_list="$commit_list, \"$commit\""
+            else
+              commit_list="[ \"$commit\""
+            fi
+          done
+          commit_list="$commit_list ]"
+          echo "commits=${commit_list}" >> "$GITHUB_OUTPUT"
+
+  check-changelog:
+    needs: define-matrix
+    strategy:
+      fail-fast: false
+      matrix:
+        commit: ${{ fromJSON(needs.define-matrix.outputs.commits) }}
+
+    name: "Check: ${{ matrix.commit }}"
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.commit }}
+      cancel-in-progress: true
+    steps:
+      - name: "Checkout `${{ matrix.commit }}`"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: "${{ matrix.commit }}"
+
+      - name: Generate Changelog
+        id: generate-changelog
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+        env:
+          OUTPUT: CHANGELOG_UP.md
+          GITHUB_REPO: ${{ github.repository }}
+      - name: Check Changelog
+        id: check-changelog
+        run: diff CHANGELOG.md CHANGELOG_UP.md

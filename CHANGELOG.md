@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add changelog check
 - Add Pull Request check workflow with conventional commits check
 - Add check than the changelog is up to date
 - Add CI workflow with conventional commits check
