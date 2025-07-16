@@ -24,3 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Setup git cliff for maintain changelog
 - Empty root commit
 
+### Fixed
+
+- Test changelog conf
+

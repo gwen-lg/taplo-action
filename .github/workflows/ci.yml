@@ -13,13 +13,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Generate Changelog
         id: generate-changelog
         uses: orhun/git-cliff-action@v4
         with:
           config: cliff.toml
+          args: --verbose
         env:
           OUTPUT: CHANGELOG_REF.md
+          GITHUB_REPO: ${{ github.repository }}
       - name: Check Changelog
         id: check-changelog
         run: diff CHANGELOG.md CHANGELOG_REF.md
