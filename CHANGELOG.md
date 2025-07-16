@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add changelog check
 - Add Pull Request check workflow with conventional commits check
 - Add check than the changelog is up to date
-- Add CI workflow with conventional commits check
+- Add workflow for push event with conventional commits check
 - Add lint option to the action
 - Add the prossibility to write format changes
 - Add action who run taplo format check
@@ -27,4 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add MIT LICENSE file
 - Setup git cliff for maintain changelog
 - Empty root commit
+
+### Fixed
+
+- Display from json for commits
 
