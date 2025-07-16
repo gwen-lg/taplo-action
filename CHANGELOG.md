@@ -9,6 +9,7 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 ### 🚀 Features
 
 - add action who run taplo format check
+- allow to configure the archive name
 
 ### ⚙️ Miscellaneous Tasks
 

@@ -7,6 +7,10 @@ inputs:
     description: "Version of Taplo"
     required: false
     default: "0.10.0"
+  archive:
+    description: "Name of the Taplo archive"
+    required: false
+    default: "taplo-linux-x86_64"
 
 runs:
   using: "composite"
@@ -17,7 +21,7 @@ runs:
       env:
         INSTALL_DIR: .
       run: |
-        curl -Ls "https://github.com/tamasfe/taplo/releases/download/${{ inputs.version }}/taplo-linux-x86_64.gz" | \
+        curl -Ls "https://github.com/tamasfe/taplo/releases/download/${{ inputs.version }}/${{ inputs.archive }}.gz" | \
         gzip -d > taplo && \
         chmod +x taplo && \
         sudo mv taplo /usr/local/bin/taplo
