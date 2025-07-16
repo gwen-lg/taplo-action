@@ -1,0 +1,24 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches-ignore:
+      - "wip*"
+
+jobs:
+  check-changelog:
+    name: Various check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Generate Changelog
+        id: generate-changelog
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+        env:
+          OUTPUT: CHANGELOG_REF.md
+      - name: Check Changelog
+        id: check-changelog
+        run: diff CHANGELOG.md CHANGELOG_REF.md
