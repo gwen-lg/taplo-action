@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Add MIT LICENSE file
 - Setup git cliff for maintain changelog
 - Empty root commit
 
