@@ -11,6 +11,7 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 - add action who run taplo format check
 - allow to configure the archive name
 - add the prossibility to write format changes
+- add lint option to the action
 
 ### ⚙️ Miscellaneous Tasks
 

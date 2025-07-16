@@ -7,8 +7,16 @@ inputs:
     description: "Version of Taplo"
     required: false
     default: "0.10.0"
+  format:
+    description: "Check formatting TOML files"
+    required: false
+    default: "true"
   format_write_changes:
     description: "Write the formatting changes to the repository"
+    required: false
+    default: "false"
+  lint:
+    description: "Check TOML files with lints"
     required: false
     default: "false"
   archive:
@@ -31,6 +39,7 @@ runs:
         sudo mv taplo /usr/local/bin/taplo
 
     - name: Format with Taplo
+      if: ${{ inputs.format == 'true' }}
       id: format
       shell: bash
       run: |
@@ -38,6 +47,11 @@ runs:
             ARGS=" --check --diff"
         fi
         taplo format ${ARGS}
+    - name: Lint with Taplo
+      if: ${{ inputs.lint == 'true' }}
+      id: lint
+      shell: bash
+      run: taplo lint
 
 branding:
   icon: "type"
