@@ -13,6 +13,10 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 - add the prossibility to write format changes
 - add lint option to the action
 
+### 📚 Documentation
+
+- indicate to setup Taplo for repository with taplo.toml
+
 ### ⚙️ Miscellaneous Tasks
 
 - setup git cliff for maintain changelog
