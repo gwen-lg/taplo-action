@@ -6,6 +6,10 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 
 ## [unreleased]
 
+### 🚀 Features
+
+- add action who run taplo format check
+
 ### ⚙️ Miscellaneous Tasks
 
 - setup git cliff for maintain changelog

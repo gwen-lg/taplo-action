@@ -1,0 +1,32 @@
+name: "Taplo Action"
+author: "Gwen Lg"
+description: "Run check and/or lint on TOML files with Taplo."
+
+inputs:
+  version:
+    description: "Version of Taplo"
+    required: false
+    default: "0.10.0"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install Taplo
+      id: install
+      shell: bash
+      env:
+        INSTALL_DIR: .
+      run: |
+        curl -Ls "https://github.com/tamasfe/taplo/releases/download/${{ inputs.version }}/taplo-linux-x86_64.gz" | \
+        gzip -d > taplo && \
+        chmod +x taplo && \
+        sudo mv taplo /usr/local/bin/taplo
+
+    - name: Format with Taplo
+      id: format
+      shell: bash
+      run: taplo format --check --diff
+
+branding:
+  icon: "type"
+  color: "red"
