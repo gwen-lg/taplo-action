@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add lint option to the action
 - Add the prossibility to write format changes
 - Add action who run taplo format check
 - Add README.md with introduction.
