@@ -22,6 +22,7 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 - *(push)* add workflow for push event with conventional commits check
 - *(push)* add check than the changelog is up to date
 - *(push)* run changelog check on each commit
+- *(pr)* add Pull Request check workflow with conventional commits check
 
 ### ⚙️ Miscellaneous Tasks
 
