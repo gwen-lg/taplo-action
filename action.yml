@@ -7,6 +7,10 @@ inputs:
     description: "Version of Taplo"
     required: false
     default: "0.10.0"
+  format_write_changes:
+    description: "Write the formatting changes to the repository"
+    required: false
+    default: "false"
   archive:
     description: "Name of the Taplo archive"
     required: false
@@ -29,7 +33,11 @@ runs:
     - name: Format with Taplo
       id: format
       shell: bash
-      run: taplo format --check --diff
+      run: |
+        if ! ${{ inputs.format_write_changes }}; then
+            ARGS=" --check --diff"
+        fi
+        taplo format ${ARGS}
 
 branding:
   icon: "type"
