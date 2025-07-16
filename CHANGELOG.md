@@ -17,6 +17,10 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 
 - indicate to setup Taplo for repository with taplo.toml
 
+### ⟳ Continuous Integration
+
+- *(push)* add workflow for push event with conventional commits check
+
 ### ⚙️ Miscellaneous Tasks
 
 - setup git cliff for maintain changelog
