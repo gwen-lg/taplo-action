@@ -12,5 +12,6 @@ To use taplo in your Github workflow, you can add a step :
 ```
 
 ### Additional inputs:
+- `format_write_changes`: Indicate to write the formatting changes to the repository
 - `version`: Override the release version of Taplo to use.
 - `archive`: Override the name of the archive of Taplo. Used of the name is different for the used version.
