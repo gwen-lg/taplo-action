@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Only checkout needed depth
 - Run changelog check on each commit
 - Indicate to setup Taplo for repository with taplo.toml
 - Allow to configure the archive name
