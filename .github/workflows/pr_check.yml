@@ -16,7 +16,19 @@ jobs:
       - uses: actions/checkout@v4
       - uses: webiny/action-conventional-commits@v1.3.0
 
+  commits-number:
+    runs-on: ubuntu-latest
+    outputs:
+      nbcommits: ${{ steps.compute-commits-number.outputs.nbcommits }}
+    steps:
+      - name: Compute commits number
+        id: compute-commits-number
+        run: |
+          nbcommits=$(( ${{ github.event.pull_request.commits }} + 1 ))
+          echo "nbcommits=${nbcommits}" >> "$GITHUB_OUTPUT"
+
   define-matrix:
+    needs: commits-number
     runs-on: ubuntu-latest
     outputs:
       commits: ${{ steps.list_commits.outputs.commits }}
@@ -25,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: ${{ needs.commits-number.outputs.nbcommits }}
           ref: ${{ github.event.pull_request.head.sha }}
       - name: List commits
         id: list_commits

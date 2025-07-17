@@ -24,6 +24,7 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 - *(push)* run changelog check on each commit
 - *(pr)* add Pull Request check workflow with conventional commits check
 - *(pr)* add changelog check
+- *(pr)* only checkout needed depth
 
 ### ⚙️ Miscellaneous Tasks
 
