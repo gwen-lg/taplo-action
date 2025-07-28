@@ -6,4 +6,4 @@ jobs:
   list-commits-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: gwen-lg/list-commits-action@7f55960638dad1f1377ef0f27f07ac0455f279d2
+      - uses: gwen-lg/list-commits-action@eb10ea3d85c99033e5e0b5b8e7a7c70fc7c9ba60
