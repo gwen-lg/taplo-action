@@ -8,3 +8,10 @@ jobs:
     steps:
       - uses: gwen-lg/list-commits-action@5dd23f92c4b23e375777990bc324f0f3e5158743
         id: list_commits
+
+      - name: Print commits
+        env:
+          commits: ${{ steps.list_commits.outputs.commits }}
+        run: |
+          set -eu
+          echo $commits
