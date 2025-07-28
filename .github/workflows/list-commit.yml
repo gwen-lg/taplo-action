@@ -1,0 +1,9 @@
+name: Test list-commits-action
+
+on: [pull_request, push]
+
+jobs:
+  list-commits-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: gwen-lg/list-commits-action@478e29a3b585c6de409ff6b6bb729d8815902da9
