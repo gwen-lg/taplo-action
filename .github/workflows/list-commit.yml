@@ -1,12 +1,12 @@
 name: Test list-commits-action
 
-on: [pull_request, push]
+on: [pull_request] # push
 
 jobs:
   list-commits-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: gwen-lg/list-commits-action@e2f23bd657417d5a1bda790e9086f40c0b61c882
+      - uses: gwen-lg/list-commits-action@dc9e019cc2dad0fe29599f378c93c625093e604c
         id: list_commits
 
       - name: Print commits
