@@ -6,7 +6,7 @@ jobs:
   list-commits-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: gwen-lg/list-commits-action@ff9bdc86944756344166977c635a23036232603a
+      - uses: gwen-lg/list-commits-action@9062549a87423e269eeec2bfb20b1ad678a9bbf9
         id: list_commits
 
       - name: Print commits
