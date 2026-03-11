@@ -10,6 +10,10 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 
 - add dependabot.yml with github-actions
 
+### ⚙️ Miscellaneous Tasks
+
+- fix typos in README.md
+
 ## [1.0.0] - 2025-07-17
 
 ### 🚀 Features
