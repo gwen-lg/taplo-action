@@ -16,8 +16,8 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v4
-      - uses: webiny/action-conventional-commits@v1.3.0
+      - uses: actions/checkout@v6
+      - uses: webiny/action-conventional-commits@v1.3.1
 
   check-changelog-push:
     if: ${{ github.event_name == 'push' }}
@@ -36,7 +36,7 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: "Checkout `${{ matrix.commit.message }}`"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           ref: "${{ matrix.commit.id }}"

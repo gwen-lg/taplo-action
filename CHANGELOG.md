@@ -9,6 +9,7 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 ### ⟳ Continuous Integration
 
 - add dependabot.yml with github-actions
+- update actions version
 
 ### ⚙️ Miscellaneous Tasks
 
