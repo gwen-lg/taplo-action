@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: ${{ needs.commits-number.outputs.nbcommits }}
           ref: ${{ github.event.pull_request.head.sha }}
