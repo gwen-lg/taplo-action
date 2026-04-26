@@ -17,7 +17,7 @@ jobs:
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v6
-      - uses: webiny/action-conventional-commits@v1.3.1
+      - uses: webiny/action-conventional-commits@v1.4.2
 
   check-changelog-push:
     if: ${{ github.event_name == 'push' }}
