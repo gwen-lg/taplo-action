@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -eu
+
+_DEFAULT_INSTALL_DIR=${HOME}/bin
+_INSTALL_DIR=${INSTALL_DIR:-${_DEFAULT_INSTALL_DIR}}
+CMD_NAME="taplo"
+COMMAND="${_INSTALL_DIR}/${CMD_NAME}"
+
+${COMMAND} $@

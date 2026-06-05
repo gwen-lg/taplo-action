@@ -6,6 +6,10 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 
 ## [unreleased]
 
+### 🚀 Features
+
+- add support for multiple arch and system
+
 ### ⚙️ Miscellaneous Tasks
 
 - *(changelog)* update changelog after tag v1.0.2
