@@ -26,7 +26,7 @@ list_push_commits() {
         fi
     done
     commits_list="$commits_list]"
-    echo "$commits_list"
+    echo "$commits_list"  >> "$GITHUB_OUTPUT"
 }
 
 # Function to list commits for pull_request events
