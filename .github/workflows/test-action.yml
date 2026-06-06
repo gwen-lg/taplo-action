@@ -14,26 +14,24 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Test Taplo Action
+      - name: Test Taplo Action with default version
         uses: ./.
         with:
-          version: "0.10.0"
-          format: "true"
-          lint: "false"
+          format: true
+          lint: false
 
       - name: Test Taplo Action with linting
         uses: ./.
         with:
-          version: "0.10.0"
-          format: "false"
-          lint: "true"
+          format: false
+          lint: true
 
-      - name: Test Taplo Action with both format and lint
+      - name: Test Taplo Action with both format and lint using specific version
         uses: ./.
         with:
           version: "0.10.0"
-          format: "true"
-          lint: "true"
-          format_write_changes: "false"
+          format: true
+          lint: true
+          format_write_changes: true
