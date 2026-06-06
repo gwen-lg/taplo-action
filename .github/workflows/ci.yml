@@ -22,6 +22,8 @@ jobs:
 
   list-commits:
     runs-on: ubuntu-latest
+    outputs:
+      commits: ${{ steps.list-commits.outputs.commits }}
     steps:
       - uses: actions/checkout@v6
       - name: test
