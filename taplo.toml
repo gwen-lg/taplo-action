@@ -2,3 +2,4 @@ include = ["*.toml"]
 
 [formatting]
 indent_string = "    "
+crlf = false
