@@ -25,5 +25,4 @@ runs:
       #   - GITHUB_PR_HEAD=${{ github.event.pull_request.head.sha }}
       # - GITHUB_EVENT_PATH=/home/runner/work/_temp/_github_workflow/event.json
       run: |
-        echo ${GITHUB_EVENT_NAME}
         bash ./.github/list_commits/list_commits.sh

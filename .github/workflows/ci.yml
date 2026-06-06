@@ -26,10 +26,6 @@ jobs:
       commits: ${{ steps.list-commits.outputs.commits }}
     steps:
       - uses: actions/checkout@v6
-      - name: test
-        run: |
-          echo $PWD
-          tree -a .
       - uses: ./.github/list_commits
         id: list-commits
   #     - uses: your-org/commit-list-action@v1

@@ -4,29 +4,7 @@ set -euo pipefail
 
 # Function to list commits for push events
 list_push_commits() {
-    local commits_list="["
-    local first=true
-
-    GITHUB_EVENT_COMMITS="$(cat ${GITHUB_EVENT_PATH} | jq -r ".commits")"
-
-    # Check if commits array is available
-    if [ -z "${GITHUB_EVENT_COMMITS:-}" ]; then
-        echo "Error: No commits found in push event" >&2
-        exit 1
-    fi
-
-    # Process each commit from github.event.commits
-    IFS=' ' read -ra COMMITS_ARRAY <<< "$GITHUB_EVENT_COMMITS"
-    for commit in "${COMMITS_ARRAY[@]}"; do
-        if [ "$first" = true ]; then
-            commits_list="$commits_list\"$commit\""
-            first=false
-        else
-            commits_list="$commits_list, \"$commit\""
-        fi
-    done
-    commits_list="$commits_list]"
-    echo "$commits_list"  >> "$GITHUB_OUTPUT"
+    echo "commits=$(cat ${GITHUB_EVENT_PATH} | jq -r -c ".commits")" >> "$GITHUB_OUTPUT"
 }
 
 # Function to list commits for pull_request events
