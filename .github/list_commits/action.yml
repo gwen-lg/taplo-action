@@ -1,27 +1,26 @@
-on:
-  workflow_call:
+name: "List Commits"
+author: "Gwen Lg"
+description: "List all commits of an push or pull_request event to allow run check on each commits."
 
-jobs:
-  list-commits:
-    if: ${{ github.event_name == 'pull_request' }}
-    # needs: commits-number
-    runs-on: ubuntu-latest
-    outputs:
-      commits:
-        description: "the list of commits from the event"
-        value: ${{ steps.list_commits.outputs.commits }}
+outputs:
+  commits:
+    description: "the list of commits from the event"
+    value: ${{ steps.list_commits.outputs.commits }}
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0 # ${{ needs.commits-number.outputs.nbcommits }}
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: List commits
-        id: list_commits
-        env:
-          - GITHUB_EVENT_NAME=${{ github.event_name }}
-          - GITHUB_EVENT_COMMITS=${{ github.event.commits }}
-          - GITHUB_PR_BASE=${{ github.event.pull_request.base.sha }}
-          - GITHUB_PR_HEAD=${{ github.event.pull_request.head.sha }}
-        run: bash list_commits.sh
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+      with:
+        fetch-depth: 0 # ${{ needs.commits-number.outputs.nbcommits }}
+        ref: ${{ github.event.pull_request.head.sha }}
+    - name: "List commits"
+      id: list_commits
+      shell: bash
+      # env:
+      #   - GITHUB_EVENT_NAME="${{ github.event_name }}"
+      #   - GITHUB_EVENT_COMMITS=${{ github.event.commits }}
+      #   - GITHUB_PR_BASE=${{ github.event.pull_request.base.sha }}
+      #   - GITHUB_PR_HEAD=${{ github.event.pull_request.head.sha }}
+      run: bash ./list_commits.sh
