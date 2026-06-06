@@ -10,6 +10,7 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 
 - add dependabot.yml with github-actions
 - update actions version
+- merge push and pr workflow into a CI workflow.
 
 ### ⚙️ Miscellaneous Tasks
 
