@@ -7,6 +7,8 @@ list_push_commits() {
     local commits_list="["
     local first=true
 
+    GITHUB_EVENT_COMMITS="$(cat ${GITHUB_EVENT_PATH} | jq -r ".commits")"
+
     # Check if commits array is available
     if [ -z "${GITHUB_EVENT_COMMITS:-}" ]; then
         echo "Error: No commits found in push event" >&2
