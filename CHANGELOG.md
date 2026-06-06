@@ -9,6 +9,7 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 ### ⚙️ Miscellaneous Tasks
 
 - *(changelog)* update changelog after tag v1.0.2
+- add taplo.toml with initial setup
 
 ## [1.0.2] - 2026-06-07
 
