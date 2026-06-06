@@ -1,0 +1,32 @@
+name: CI - Test Action Across Platforms
+on:
+  push:
+    branches-ignore:
+      - "wip*"
+  pull_request:
+
+jobs:
+  test-action:
+    name: Test Taplo Action on Multiple Platforms
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Test Taplo Action with default version
+        uses: ./.
+        with:
+          format: true
+          lint: false
+
+      - name: Test Taplo Action with linting
+        uses: ./.
+        with:
+          format: false
+          lint: true
+
+      - name: Test Taplo Action with both format and lint using specific version
+        uses: ./.
+        with:
+          version: "0.10.0"
+          format: true
+          lint: true
+          format_write_changes: true

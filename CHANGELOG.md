@@ -10,6 +10,10 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 
 - add support for multiple arch and system
 
+### ⟳ Continuous Integration
+
+- add test-action workflow
+
 ### ⚙️ Miscellaneous Tasks
 
 - *(changelog)* update changelog after tag v1.0.2
