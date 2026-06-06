@@ -26,5 +26,4 @@ runs:
       # - GITHUB_EVENT_PATH=/home/runner/work/_temp/_github_workflow/event.json
       run: |
         echo ${GITHUB_EVENT_NAME}
-        cat ${GITHUB_EVENT_PATH} | jq -r ".commits"
         bash ./.github/list_commits/list_commits.sh
