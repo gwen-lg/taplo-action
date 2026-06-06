@@ -23,4 +23,4 @@ runs:
       #   - GITHUB_EVENT_COMMITS=${{ github.event.commits }}
       #   - GITHUB_PR_BASE=${{ github.event.pull_request.base.sha }}
       #   - GITHUB_PR_HEAD=${{ github.event.pull_request.head.sha }}
-      run: bash ./list_commits.sh
+      run: bash ./.github/list_commits/list_commits.sh
