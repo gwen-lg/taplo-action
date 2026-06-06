@@ -19,8 +19,12 @@ jobs:
     needs: commits-number
     runs-on: ubuntu-latest
     outputs:
-      nbcommits: ${{ steps.compute-commits-number.outputs.nbcommits }}
-      commits: ${{ steps.list_commits.outputs.commits }}
+      nbcommits:
+        description: "The number of commits"
+        value: ${{ steps.compute-commits-number.outputs.nbcommits }}
+      commits:
+        description: "the list of commits from the event"
+        value: ${{ steps.list_commits.outputs.commits }}
 
     steps:
       - name: Checkout
