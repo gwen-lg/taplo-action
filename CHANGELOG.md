@@ -6,6 +6,12 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 
 ## [unreleased]
 
+### ⚙️ Miscellaneous Tasks
+
+- *(changelog)* update changelog after tag v1.0.2
+
+## [1.0.2] - 2026-06-07
+
 ### 🐛 Bug Fixes
 
 - remove useless concurrency management in workflows
