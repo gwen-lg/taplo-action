@@ -1,0 +1,17 @@
+name: Test list-commits-action
+
+on: [pull_request] # push
+
+jobs:
+  list-commits-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: gwen-lg/list-commits-action@dc9e019cc2dad0fe29599f378c93c625093e604c
+        id: list_commits
+
+      - name: Print commits
+        env:
+          commits: ${{ steps.list_commits.outputs.commits }}
+        run: |
+          set -eu
+          echo $commits
