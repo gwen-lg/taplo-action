@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Conventional Commits](https://www.conventionalcommits.org/) and [Semantic Versioning](https://semver.org/spec/v2.0.0.html)  guidelines.
 
-## [unreleased]
+## [1.0.3] - 2026-10-31
 
 ### 🚀 Features
 
@@ -18,6 +18,7 @@ This project adheres to [Conventional Commits](https://www.conventionalcommits.o
 
 - *(changelog)* update changelog after tag v1.0.2
 - add taplo.toml with initial setup
+- release v1.0.3 with multiarch management
 
 ## [1.0.2] - 2026-06-07
 
